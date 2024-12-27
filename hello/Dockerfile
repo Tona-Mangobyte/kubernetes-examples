@@ -1,5 +1,4 @@
 FROM node:alpine
-#LABEL authors="Tona Chheun"
 
 WORKDIR /app/
 
@@ -7,7 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-#COPY --from=builder /app .
 COPY . .
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
