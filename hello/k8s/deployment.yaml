@@ -11,16 +11,11 @@ spec:
       app: demo
   template:
     metadata:
-      name: demo
       labels:
         app: demo
     spec:
       containers:
         - name: demo
-          image: nginx
-          imagePullPolicy: IfNotPresent
+          image: tonachheun/hello:latest
           ports:
             - containerPort: 8080
-              protocol: TCP
-      restartPolicy: Always
-      
