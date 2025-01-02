@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels:
+      app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+        - name:  demo
+          image: tonachheun/hello:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GREETING
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-config
+                  key: greeting
