@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-files
+data:
+  file1.txt: |
+    Hello, Kubernetes!
+  file2.txt: |
+    Hello again, Kubernetes!

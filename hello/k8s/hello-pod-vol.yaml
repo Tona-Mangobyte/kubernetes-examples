@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+  labels:
+    role: hello
+spec:
+  volumes:
+    - name: hello-data
+      hostPath:
+        path: "/var/lib/hello"
+    - name: hello-config
+      configMap:
+        name: hello-files
+  containers:
+    - name: hello
+      image: tonachheun/hello:latest
+      volumeMounts:
+          - name: hello-data
+            mountPath: "/data"
+          - name: hello-config
+            mountPath: "/data/files"
+      ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+  restartPolicy: Always
+  
