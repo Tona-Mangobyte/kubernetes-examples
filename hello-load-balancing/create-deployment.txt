@@ -1,0 +1,2 @@
+kubectl create deployment hello-service --image=tonachheun/hello:latest --replicas=3 --port=8080
+kubectl expose deployment hello-service --type=LoadBalancer --port=8080 --target-port=8080
