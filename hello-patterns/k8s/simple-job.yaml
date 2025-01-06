@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: random-generator
+spec:
+  completions: 5
+  parallelism: 2
+  ttlSecondsAfterFinished: 300
+  template:
+    metadata:
+      name: random-generator
+    spec:
+      containers:
+        - name: random-generator
+          image: k8spatterns/random-generator:1.0
+          command: [ "java", "RandomRunner", "/numbers/numbers.txt", "10000" ]
+          volumeMounts:
+              - name: numbers-volume
+                mountPath: /numbers
+      restartPolicy: OnFailure
+      volumes:
+          - name: numbers-volume
+            configMap:
+                name: numbers-config
+  

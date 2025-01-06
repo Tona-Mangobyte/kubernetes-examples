@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: numbers-config
+data:
+    numbers.txt: |
+        1
+        2
+        3
+        4
+        5
