@@ -14,7 +14,4 @@ spec:
   volumes:
     - emptyDir: {}
       name: web-data
-    - name: default-token-2fp89
-      secret:
-        secretName: 490b1b1b-0b1b-4b1b-9b1b-0b1b1b1b1b1b
   
